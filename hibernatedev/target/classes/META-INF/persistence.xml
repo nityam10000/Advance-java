@@ -1,0 +1,42 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+	version="3.0">
+
+	<persistence-unit name="postgre">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>com.hiberadv.Someone</class>
+		<class>com.hiberadv.Adhaar</class>
+		<class>com.hiberadv.Bank</class>
+		<class>com.hiberadv.Account</class>
+		<class>com.hiberadv.Employee</class>
+		<class>com.hiberadv.Company</class>
+		<class>com.hiberadv.manytomany.SomeStudents</class>
+		<class>com.hiberadv.manytomany.Subjects</class>
+		
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+	
+
+		<properties>
+			<property name="jakarta.persistence.jdbc.driver"
+				value="org.postgresql.Driver" />
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:postgresql://localhost:5433/adv" />
+			<property name="jakarta.persistence.jdbc.user"
+				value="postgres" />
+			<property name="jakarta.persistence.jdbc.password"
+				value="nityam" />
+
+			<!-- Schema generation -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- Options: create, create-drop, update, validate -->
+
+			<!-- Optional: show SQL -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
